@@ -1,6 +1,5 @@
 import './App.css';
 import { useState } from 'react';
-import axios from 'axios';
 
 function App() {
 
@@ -20,43 +19,31 @@ function App() {
     setResume(event.target.files[0]);
   };
 
-  const handleAnalyze = async () => {
+  const handleAnalyze = () => {
 
     if (!resume) {
       alert("Please upload a resume first");
       return;
     }
 
-    const formData = new FormData();
+    setMessage("Resume analyzed successfully");
 
-    formData.append("resume", resume);
+    setAtsScore(85);
 
-    try {
+    setSkillsFound([
+      "Python",
+      "React",
+      "Machine Learning",
+      "GitHub"
+    ]);
 
-      const response = await axios.post(
-        "http://localhost:5000/upload",
-        formData
-      );
+    setMissingSkills([
+      "Docker",
+      "AWS",
+      "SQL"
+    ]);
 
-      console.log(response.data);
-
-      setMessage(response.data.message);
-
-      setAtsScore(response.data.atsScore);
-
-      setSkillsFound(response.data.skillsFound);
-
-      setMissingSkills(response.data.missingSkills);
-
-      setShowResult(true);
-
-    } catch (error) {
-
-      console.log(error);
-
-      setMessage("Upload Failed");
-
-    }
+    setShowResult(true);
 
   };
 
@@ -92,8 +79,6 @@ function App() {
         </button>
 
         <br /><br />
-
-        <h3>{message}</h3>
 
       </div>
 
