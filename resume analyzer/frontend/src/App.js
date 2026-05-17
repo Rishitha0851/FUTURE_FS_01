@@ -5,8 +5,6 @@ function App() {
 
   const [resume, setResume] = useState(null);
 
-
-
   const [atsScore, setAtsScore] = useState(null);
 
   const [skillsFound, setSkillsFound] = useState([]);
@@ -25,7 +23,6 @@ function App() {
       alert("Please upload a resume first");
       return;
     }
-
 
     setAtsScore(85);
 
@@ -53,7 +50,6 @@ function App() {
         AI Resume Analyzer
       </h1>
 
-      {/* Upload Section */}
       <div className="card">
 
         <h2>Upload Resume</h2>
@@ -81,12 +77,10 @@ function App() {
 
       </div>
 
-      {/* Result Section */}
       {showResult && (
 
         <>
 
-          {/* ATS Score */}
           <div className="score-card">
 
             <h2>ATS Score</h2>
@@ -97,10 +91,8 @@ function App() {
 
           </div>
 
-          {/* Skills */}
           <div className="skills-section">
 
-            {/* Skills Found */}
             <div className="card">
 
               <h2>Skills Found</h2>
@@ -117,7 +109,6 @@ function App() {
 
             </div>
 
-            {/* Missing Skills */}
             <div className="card">
 
               <h2>Missing Skills</h2>
