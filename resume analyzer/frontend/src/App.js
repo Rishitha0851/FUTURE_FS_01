@@ -5,7 +5,7 @@ function App() {
 
   const [resume, setResume] = useState(null);
 
-  const [message, setMessage] = useState("");
+
 
   const [atsScore, setAtsScore] = useState(null);
 
