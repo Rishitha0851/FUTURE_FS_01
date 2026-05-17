@@ -26,7 +26,6 @@ function App() {
       return;
     }
 
-    setMessage("Resume analyzed successfully");
 
     setAtsScore(85);
 
