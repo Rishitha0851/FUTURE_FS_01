@@ -1,0 +1,133 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 0;
+  z-index: 1000;
+  transition: var(--transition-fast);
+  background-color: transparent;
+}
+
+.navbar.scrolled {
+  padding: 1rem 0;
+  background-color: var(--color-glass-bg);
+  box-shadow: var(--shadow-sm);
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.logo-icon {
+  color: var(--color-primary-light);
+}
+
+.desktop-actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary-light);
+  transition: width var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.mobile-menu-btn {
+  display: none;
+  color: var(--color-text-primary);
+  font-size: 1.5rem;
+}
+
+.mobile-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-surface);
+  transform: translateY(-150%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-smooth);
+}
+
+.mobile-nav.open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  box-shadow: var(--shadow-md);
+}
+
+.nav-links-mobile {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem var(--spacing-lg);
+}
+
+.nav-link-mobile {
+  display: block;
+  padding: 1rem 0;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav-link-mobile:last-child {
+  border-bottom: none;
+}
+
+.mobile-theme-toggle-container {
+  display: flex;
+  padding: 1rem 0;
+  justify-content: center;
+  border-top: 1px solid var(--color-border);
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .desktop-actions {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+}

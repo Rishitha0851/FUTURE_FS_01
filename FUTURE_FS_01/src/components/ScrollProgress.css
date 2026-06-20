@@ -1,0 +1,17 @@
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: transparent;
+  z-index: 1001; /* Above navbar */
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary-light), var(--color-accent));
+  box-shadow: 0 0 10px var(--color-primary-light);
+  border-radius: 0 2px 2px 0;
+  transition: width 0.1s ease;
+}
