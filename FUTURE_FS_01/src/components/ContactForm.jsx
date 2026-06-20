@@ -19,13 +19,19 @@ const ContactForm = () => {
     e.preventDefault();
     
     // Simple frontend validation
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
       setSubmitStatus({ type: 'error', message: 'Please fill in all required fields.' });
       return;
     }
 
+    const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+    if (!emailRegex.test(formData.email)) {
+      setSubmitStatus({ type: 'error', message: 'Please enter a valid email address.' });
+      return;
+    }
+
     // Simulate form submission delay
-    setSubmitStatus({ type: 'success', message: 'Thank you for reaching out! I will get back to you soon.' });
+    setSubmitStatus({ type: 'success', message: 'Thank you for reaching out. Your message has been received successfully.' });
     setFormData({ name: '', email: '', subject: '', message: '' });
     
     // Clear message after 5 seconds
@@ -41,9 +47,9 @@ const ContactForm = () => {
         
         <div className="contact-wrapper">
           <div className="contact-info">
-            <h3>Let's talk about your project</h3>
+            <h3>Let's Connect</h3>
             <p className="contact-description">
-              I'm currently available for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+              I am actively seeking internship, placement, and project opportunities in AI, Data Science, Machine Learning, and Full Stack Development. Feel free to connect with me for collaborations, internships, professional discussions, or exciting technology projects.
             </p>
             
             <div className="info-items">
@@ -53,7 +59,11 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <h4>Email</h4>
-                  <p>rishitha@example.com</p>
+                  <p>
+                    <a href="mailto:rishithamakam0851@gmail.com" className="contact-link">
+                      rishithamakam0851@gmail.com
+                    </a>
+                  </p>
                 </div>
               </div>
               
@@ -63,7 +73,7 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <h4>Location</h4>
-                  <p>San Francisco, CA</p>
+                  <p>Chennai, Tamil Nadu, India</p>
                 </div>
               </div>
               
@@ -73,7 +83,7 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <h4>Phone</h4>
-                  <p>+1 (555) 123-4567</p>
+                  <p>+91 7330714754</p>
                 </div>
               </div>
             </div>

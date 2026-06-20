@@ -54,6 +54,17 @@
   color: var(--color-text-secondary);
 }
 
+.contact-link {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.contact-link:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
 .contact-form {
   padding: 2.5rem;
   border-radius: 16px;
